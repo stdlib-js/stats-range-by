@@ -43,14 +43,32 @@ The [**range**][range] is defined as the difference between the maximum and mini
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/stats-range-by
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import rangeBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-range-by@deno/mod.js';
+var rangeBy = require( '@stdlib/stats-range-by' );
 ```
 
 #### rangeBy( x\[, options], clbk\[, thisArg] )
@@ -58,7 +76,7 @@ import rangeBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-range-by@deno/m
 Computes the [**range**][range] along one or more [ndarray][@stdlib/ndarray/ctor] dimensions according to a callback function.
 
 ```javascript
-import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@deno/mod.js';
+var array = require( '@stdlib/ndarray-array' );
 
 var x = array( [ -1.0, 2.0, -3.0 ] );
 
@@ -83,7 +101,7 @@ The function has the following parameters:
 The invoked callback is provided three arguments:
 
 -   **value**: current array element.
--   **idx**: current array element index.
+-   **index**: current array element index.
 -   **array**: input ndarray.
 
 To set the callback execution context, provide a `thisArg`.
@@ -91,7 +109,7 @@ To set the callback execution context, provide a `thisArg`.
 <!-- eslint-disable no-invalid-this -->
 
 ```javascript
-import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@deno/mod.js';
+var array = require( '@stdlib/ndarray-array' );
 
 var x = array( [ -1.0, 2.0, -3.0 ] );
 
@@ -122,8 +140,8 @@ The function accepts the following options:
 By default, the function performs a reduction over all elements in a provided input [ndarray][@stdlib/ndarray/ctor]. To perform a reduction over specific dimensions, provide a `dims` option.
 
 ```javascript
-import ndarray2array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@deno/mod.js';
-import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@deno/mod.js';
+var ndarray2array = require( '@stdlib/ndarray-to-array' );
+var array = require( '@stdlib/ndarray-array' );
 
 function clbk( v ) {
     return v * 100.0;
@@ -167,8 +185,8 @@ v = y.get();
 By default, the function excludes reduced dimensions from the output [ndarray][@stdlib/ndarray/ctor]. To include the reduced dimensions as singleton dimensions, set the `keepdims` option to `true`.
 
 ```javascript
-import ndarray2array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@deno/mod.js';
-import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@deno/mod.js';
+var ndarray2array = require( '@stdlib/ndarray-to-array' );
+var array = require( '@stdlib/ndarray-array' );
 
 function clbk( v ) {
     return v * 100.0;
@@ -216,8 +234,8 @@ v = ndarray2array( y );
 By default, the function returns an [ndarray][@stdlib/ndarray/ctor] having a [data type][@stdlib/ndarray/dtypes] determined by the function's output data type [policy][@stdlib/ndarray/output-dtype-policies]. To override the default behavior, set the `dtype` option.
 
 ```javascript
-import getDType from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-dtype@deno/mod.js';
-import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@deno/mod.js';
+var getDType = require( '@stdlib/ndarray-dtype' );
+var array = require( '@stdlib/ndarray-array' );
 
 function clbk( v ) {
     return v * 100.0;
@@ -242,8 +260,8 @@ var dt = String( getDType( y ) );
 Computes the [**range**][range] along one or more [ndarray][@stdlib/ndarray/ctor] dimensions according to a callback function and assigns results to a provided output [ndarray][@stdlib/ndarray/ctor].
 
 ```javascript
-import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@deno/mod.js';
-import zeros from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-zeros@deno/mod.js';
+var array = require( '@stdlib/ndarray-array' );
+var zeros = require( '@stdlib/ndarray-zeros' );
 
 function clbk( v ) {
     return v * 100.0;
@@ -298,12 +316,12 @@ The method accepts the following options:
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-import filledarrayBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-filled-by@deno/mod.js';
-import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@deno/mod.js';
-import getDType from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-dtype@deno/mod.js';
-import ndarray2array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@deno/mod.js';
-import ndarray from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-ctor@deno/mod.js';
-import rangeBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-range-by@deno/mod.js';
+var filledarrayBy = require( '@stdlib/array-filled-by' );
+var discreteUniform = require( '@stdlib/random-base-discrete-uniform' );
+var getDType = require( '@stdlib/ndarray-dtype' );
+var ndarray2array = require( '@stdlib/ndarray-to-array' );
+var ndarray = require( '@stdlib/ndarray-ctor' );
+var rangeBy = require( '@stdlib/stats-range-by' );
 
 // Define a function for generating an object having a random value:
 function random() {
@@ -359,7 +377,7 @@ console.log( ndarray2array( y ) );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -424,13 +442,13 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 [range]: https://en.wikipedia.org/wiki/Range_%28statistics%29
 
-[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor/tree/deno
+[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor
 
-[@stdlib/ndarray/dtypes]: https://github.com/stdlib-js/ndarray-dtypes/tree/deno
+[@stdlib/ndarray/dtypes]: https://github.com/stdlib-js/ndarray-dtypes
 
-[@stdlib/ndarray/output-dtype-policies]: https://github.com/stdlib-js/ndarray-output-dtype-policies/tree/deno
+[@stdlib/ndarray/output-dtype-policies]: https://github.com/stdlib-js/ndarray-output-dtype-policies
 
-[@stdlib/ndarray/base/broadcast-shapes]: https://github.com/stdlib-js/ndarray-base-broadcast-shapes/tree/deno
+[@stdlib/ndarray/base/broadcast-shapes]: https://github.com/stdlib-js/ndarray-base-broadcast-shapes
 
 </section>
 
