@@ -40,7 +40,8 @@
     "@stdlib/ndarray-base-unary-reduce-strided1d-dispatch-by-factory": "github:stdlib-js/ndarray-base-unary-reduce-strided1d-dispatch-by-factory#main",
     "@stdlib/ndarray-dtypes": "^0.3.0",
     "@stdlib/stats-base-ndarray-range-by": "github:stdlib-js/stats-base-ndarray-range-by#main",
-    "@stdlib/types": "^0.4.3"
+    "@stdlib/types": "^0.4.3",
+    "@stdlib/error-tools-fmtprodmsg": "^0.2.2"
   },
   "devDependencies": {
     "@stdlib/array-filled-by": "^0.2.1",
