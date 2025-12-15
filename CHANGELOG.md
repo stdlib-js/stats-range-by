@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2025-12-09)
+## Unreleased (2025-12-15)
 
 <section class="features">
 
@@ -22,6 +22,7 @@
 
 <details>
 
+-   [`1a8cc79`](https://github.com/stdlib-js/stdlib/commit/1a8cc797c3adce4d19378ab7eb85323272472164) - **docs:** update return annotations to use ndarray instance notation in `stats/range-by` [(#8939)](https://github.com/stdlib-js/stdlib/pull/8939) _(by Sachin Pangal, Athan Reines)_
 -   [`01a7d5e`](https://github.com/stdlib-js/stdlib/commit/01a7d5eae3a7c6c244382ff2c2c00c19cc5acb68) - **docs:** add missing semicolons _(by Athan Reines)_
 -   [`006274e`](https://github.com/stdlib-js/stdlib/commit/006274e27badde01275e5daa80e8caeab301a787) - **test:** fix strides _(by Athan Reines)_
 -   [`2d2c81b`](https://github.com/stdlib-js/stdlib/commit/2d2c81b60826f00bffc81269099cc64b7177ecdd) - **docs:** update parameter name _(by Athan Reines)_
