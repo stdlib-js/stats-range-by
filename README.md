@@ -43,14 +43,32 @@ The [**range**][range] is defined as the difference between the maximum and mini
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/stats-range-by
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import rangeBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-range-by@esm/index.mjs';
+var rangeBy = require( '@stdlib/stats-range-by' );
 ```
 
 #### rangeBy( x\[, options], clbk\[, thisArg] )
@@ -58,7 +76,7 @@ import rangeBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-range-by@esm/in
 Computes the [**range**][range] along one or more [ndarray][@stdlib/ndarray/ctor] dimensions according to a callback function.
 
 ```javascript
-import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@esm/index.mjs';
+var array = require( '@stdlib/ndarray-array' );
 
 var x = array( [ -1.0, 2.0, -3.0 ] );
 
@@ -67,10 +85,7 @@ function clbk( v ) {
 }
 
 var y = rangeBy( x, clbk );
-// returns <ndarray>
-
-var v = y.get();
-// returns 10.0
+// returns <ndarray>[ 10.0 ]
 ```
 
 The function has the following parameters:
@@ -91,7 +106,7 @@ To set the callback execution context, provide a `thisArg`.
 <!-- eslint-disable no-invalid-this -->
 
 ```javascript
-import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@esm/index.mjs';
+var array = require( '@stdlib/ndarray-array' );
 
 var x = array( [ -1.0, 2.0, -3.0 ] );
 
@@ -104,10 +119,7 @@ var ctx = {
     'count': 0
 };
 var y = rangeBy( x, clbk, ctx );
-// returns <ndarray>
-
-var v = y.get();
-// returns 10.0
+// returns <ndarray>[ 10.0 ]
 
 var count = ctx.count;
 // returns 3
@@ -122,8 +134,7 @@ The function accepts the following options:
 By default, the function performs a reduction over all elements in a provided input [ndarray][@stdlib/ndarray/ctor]. To perform a reduction over specific dimensions, provide a `dims` option.
 
 ```javascript
-import ndarray2array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@esm/index.mjs';
-import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@esm/index.mjs';
+var array = require( '@stdlib/ndarray-array' );
 
 function clbk( v ) {
     return v * 100.0;
@@ -133,42 +144,31 @@ var x = array( [ -1.0, 2.0, -3.0, 4.0 ], {
     'shape': [ 2, 2 ],
     'order': 'row-major'
 });
-var v = ndarray2array( x );
-// returns [ [ -1.0, 2.0 ], [ -3.0, 4.0 ] ]
+// returns <ndarray>[ [ -1.0, 2.0 ], [ -3.0, 4.0 ] ]
 
 var opts = {
     'dims': [ 0 ]
 };
 var y = rangeBy( x, opts, clbk );
-// returns <ndarray>
-
-v = ndarray2array( y );
-// returns [ 200.0, 200.0 ]
+// returns <ndarray>[ 200.0, 200.0 ]
 
 opts = {
     'dims': [ 1 ]
 };
 y = rangeBy( x, opts, clbk );
-// returns <ndarray>
-
-v = ndarray2array( y );
-// returns [ 300.0, 700.0 ]
+// returns <ndarray>[ 300.0, 700.0 ]
 
 opts = {
     'dims': [ 0, 1 ]
 };
 y = rangeBy( x, opts, clbk );
-// returns <ndarray>
-
-v = y.get();
-// returns 700.0
+// returns <ndarray>[ 700.0 ]
 ```
 
 By default, the function excludes reduced dimensions from the output [ndarray][@stdlib/ndarray/ctor]. To include the reduced dimensions as singleton dimensions, set the `keepdims` option to `true`.
 
 ```javascript
-import ndarray2array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@esm/index.mjs';
-import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@esm/index.mjs';
+var array = require( '@stdlib/ndarray-array' );
 
 function clbk( v ) {
     return v * 100.0;
@@ -178,46 +178,35 @@ var x = array( [ -1.0, 2.0, -3.0, 4.0 ], {
     'shape': [ 2, 2 ],
     'order': 'row-major'
 });
-
-var v = ndarray2array( x );
-// returns [ [ -1.0, 2.0 ], [ -3.0, 4.0 ] ]
+// returns <ndarray>[ [ -1.0, 2.0 ], [ -3.0, 4.0 ] ]
 
 var opts = {
     'dims': [ 0 ],
     'keepdims': true
 };
 var y = rangeBy( x, opts, clbk );
-// returns <ndarray>
-
-v = ndarray2array( y );
-// returns [ [ 200.0, 200.0 ] ]
+// returns <ndarray>[ [ 200.0, 200.0 ] ]
 
 opts = {
     'dims': [ 1 ],
     'keepdims': true
 };
 y = rangeBy( x, opts, clbk );
-// returns <ndarray>
-
-v = ndarray2array( y );
-// returns [ [ 300.0 ], [ 700.0 ] ]
+// returns <ndarray>[ [ 300.0 ], [ 700.0 ] ]
 
 opts = {
     'dims': [ 0, 1 ],
     'keepdims': true
 };
 y = rangeBy( x, opts, clbk );
-// returns <ndarray>
-
-v = ndarray2array( y );
-// returns [ [ 700.0 ] ]
+// returns <ndarray>[ [ 700.0 ] ]
 ```
 
 By default, the function returns an [ndarray][@stdlib/ndarray/ctor] having a [data type][@stdlib/ndarray/dtypes] determined by the function's output data type [policy][@stdlib/ndarray/output-dtype-policies]. To override the default behavior, set the `dtype` option.
 
 ```javascript
-import getDType from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-dtype@esm/index.mjs';
-import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@esm/index.mjs';
+var getDType = require( '@stdlib/ndarray-dtype' );
+var array = require( '@stdlib/ndarray-array' );
 
 function clbk( v ) {
     return v * 100.0;
@@ -242,8 +231,8 @@ var dt = String( getDType( y ) );
 Computes the [**range**][range] along one or more [ndarray][@stdlib/ndarray/ctor] dimensions according to a callback function and assigns results to a provided output [ndarray][@stdlib/ndarray/ctor].
 
 ```javascript
-import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@esm/index.mjs';
-import zeros from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-zeros@esm/index.mjs';
+var array = require( '@stdlib/ndarray-array' );
+var zeros = require( '@stdlib/ndarray-zeros' );
 
 function clbk( v ) {
     return v * 100.0;
@@ -253,10 +242,7 @@ var x = array( [ -1.0, 2.0, -3.0 ] );
 var y = zeros( [] );
 
 var out = rangeBy.assign( x, y, clbk );
-// returns <ndarray>
-
-var v = out.get();
-// returns 500.0
+// returns <ndarray>[ 500.0 ]
 
 var bool = ( out === y );
 // returns true
@@ -297,18 +283,13 @@ The method accepts the following options:
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="module">
-
-import filledarrayBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-filled-by@esm/index.mjs';
-import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@esm/index.mjs';
-import getDType from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-dtype@esm/index.mjs';
-import ndarray2array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@esm/index.mjs';
-import ndarray from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-ctor@esm/index.mjs';
-import rangeBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-range-by@esm/index.mjs';
+```javascript
+var filledarrayBy = require( '@stdlib/array-filled-by' );
+var discreteUniform = require( '@stdlib/random-base-discrete-uniform' );
+var getDType = require( '@stdlib/ndarray-dtype' );
+var ndarray2array = require( '@stdlib/ndarray-to-array' );
+var ndarray = require( '@stdlib/ndarray-ctor' );
+var rangeBy = require( '@stdlib/stats-range-by' );
 
 // Define a function for generating an object having a random value:
 function random() {
@@ -336,15 +317,11 @@ var opts = {
 var y = rangeBy( x, opts, accessor );
 
 // Resolve the output array data type:
-var dt = getDType( y );
+var dt = String( getDType( y ) );
 console.log( dt );
 
 // Print the results:
 console.log( ndarray2array( y ) );
-
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -368,7 +345,7 @@ console.log( ndarray2array( y ) );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -433,13 +410,13 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 [range]: https://en.wikipedia.org/wiki/Range_%28statistics%29
 
-[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor/tree/esm
+[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor
 
-[@stdlib/ndarray/dtypes]: https://github.com/stdlib-js/ndarray-dtypes/tree/esm
+[@stdlib/ndarray/dtypes]: https://github.com/stdlib-js/ndarray-dtypes
 
-[@stdlib/ndarray/output-dtype-policies]: https://github.com/stdlib-js/ndarray-output-dtype-policies/tree/esm
+[@stdlib/ndarray/output-dtype-policies]: https://github.com/stdlib-js/ndarray-output-dtype-policies
 
-[@stdlib/ndarray/base/broadcast-shapes]: https://github.com/stdlib-js/ndarray-base-broadcast-shapes/tree/esm
+[@stdlib/ndarray/base/broadcast-shapes]: https://github.com/stdlib-js/ndarray-base-broadcast-shapes
 
 </section>
 
