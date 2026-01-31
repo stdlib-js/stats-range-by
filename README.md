@@ -50,7 +50,7 @@ The [**range**][range] is defined as the difference between the maximum and mini
 ## Usage
 
 ```javascript
-import rangeBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-range-by@esm/index.mjs';
+import rangeBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-range-by@v0.1.0-esm/index.mjs';
 ```
 
 #### rangeBy( x\[, options], clbk\[, thisArg] )
@@ -276,7 +276,7 @@ import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-d
 import getDType from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-dtype@esm/index.mjs';
 import ndarray2array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@esm/index.mjs';
 import ndarray from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-ctor@esm/index.mjs';
-import rangeBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-range-by@esm/index.mjs';
+import rangeBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-range-by@v0.1.0-esm/index.mjs';
 
 // Define a function for generating an object having a random value:
 function random() {
