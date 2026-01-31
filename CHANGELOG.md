@@ -2,9 +2,9 @@
 
 > Package changelog.
 
-<section class="release" id="unreleased">
+<section class="release" id="v0.1.0">
 
-## Unreleased (2025-12-15)
+## 0.1.0 (2026-01-31)
 
 <section class="features">
 
@@ -22,6 +22,8 @@
 
 <details>
 
+-   [`4b1efc6`](https://github.com/stdlib-js/stdlib/commit/4b1efc6552af03e1b7d260f6f10e7e042e7d68f6) - **docs:** update dtype type _(by Athan Reines)_
+-   [`ff435c0`](https://github.com/stdlib-js/stdlib/commit/ff435c01d291e9ef75429a026fb221b729aa4a07) - **docs:** update dtype type _(by Athan Reines)_
 -   [`1a8cc79`](https://github.com/stdlib-js/stdlib/commit/1a8cc797c3adce4d19378ab7eb85323272472164) - **docs:** update return annotations to use ndarray instance notation in `stats/range-by` [(#8939)](https://github.com/stdlib-js/stdlib/pull/8939) _(by Sachin Pangal, Athan Reines)_
 -   [`01a7d5e`](https://github.com/stdlib-js/stdlib/commit/01a7d5eae3a7c6c244382ff2c2c00c19cc5acb68) - **docs:** add missing semicolons _(by Athan Reines)_
 -   [`006274e`](https://github.com/stdlib-js/stdlib/commit/006274e27badde01275e5daa80e8caeab301a787) - **test:** fix strides _(by Athan Reines)_

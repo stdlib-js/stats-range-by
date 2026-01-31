@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/stats-range-by",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Compute the range along one or more ndarray dimensions according to a callback function.",
   "license": "Apache-2.0",
   "author": {
@@ -38,12 +38,12 @@
   },
   "dependencies": {
     "@stdlib/ndarray-base-unary-reduce-strided1d-dispatch-by-factory": "github:stdlib-js/ndarray-base-unary-reduce-strided1d-dispatch-by-factory#main",
-    "@stdlib/ndarray-dtypes": "^0.3.0",
-    "@stdlib/stats-base-ndarray-range-by": "github:stdlib-js/stats-base-ndarray-range-by#main",
+    "@stdlib/ndarray-dtypes": "^0.4.0",
+    "@stdlib/stats-base-ndarray-range-by": "^0.1.0",
     "@stdlib/types": "^0.4.3"
   },
   "devDependencies": {
-    "@stdlib/array-filled-by": "^0.2.1",
+    "@stdlib/array-filled-by": "^0.3.0",
     "@stdlib/array-zeros": "^0.2.2",
     "@stdlib/assert-is-method": "^0.2.2",
     "@stdlib/assert-is-ndarray-like": "^0.2.2",
@@ -52,7 +52,7 @@
     "@stdlib/ndarray-base-ctor": "^0.2.2",
     "@stdlib/ndarray-ctor": "^0.2.2",
     "@stdlib/ndarray-dtype": "^0.2.2",
-    "@stdlib/ndarray-empty-like": "^0.3.0",
+    "@stdlib/ndarray-empty-like": "^0.3.1",
     "@stdlib/ndarray-order": "^0.2.2",
     "@stdlib/ndarray-shape": "^0.2.2",
     "@stdlib/ndarray-to-array": "^0.2.1",
@@ -96,7 +96,6 @@
     "extent",
     "ndarray"
   ],
-  "__stdlib__": {},
   "funding": {
     "type": "opencollective",
     "url": "https://opencollective.com/stdlib"
